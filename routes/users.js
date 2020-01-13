@@ -12,11 +12,11 @@ const bcrypt = require('bcryptjs');
 router.post('/', async(req, res, next) => {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
-  await bcrypt.genSalt(10, function(err,salt) {
-    await bcrypt.hash(req.body.password, salt, function(err, hash){
+  await bcrypt.genSalt(10, async(err,salt) =>
+  await bcrypt.hash(req.body.password, salt, function(err, hash){
 
     })
-  })
+  )
   const request = "INSERT INTO user (user_id,user_name,user_email) VALUES (DEFAULT,$1,$2,$3 )"
   const args = [req.body.name, req.body.email,hash]
   const client = await pool.connect()

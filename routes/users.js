@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
 
 /* GET users listing. */
 router.post('/', async(req, res, next) => {
-  var requ = JSON.parse(req)
+  var requ = JSON.parse(req.body)
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(requ.body.password, salt);
   await bcrypt.genSalt(10, async(err,salt) =>

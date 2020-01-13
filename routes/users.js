@@ -18,8 +18,8 @@ router.post('/', async(req, res, next) => {
 
     })
   )
-  const request = "INSERT INTO user (user_id,user_name,user_email) VALUES (DEFAULT,$1,$2,$3 )"
-  const args = [req.body.name, req.body.email,hash]
+  const request = "INSERT INTO users (user_id,user_name,user_email) VALUES (DEFAULT,$1,$2,$3 )"
+  const args = [req.body.name, req.body.mail,hash]
   const client = await pool.connect()
   const result = await client.query(request,args,(err,result) => {
     res.send(result)

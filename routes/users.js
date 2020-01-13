@@ -18,7 +18,7 @@ router.post('/', async(req, res, next) => {
 
     })
   )
-  const request = "INSERT INTO users (user_id,user_name,user_email) VALUES (DEFAULT,$1,$2,$3 )"
+  const request = "INSERT INTO users (user_id,user_name,user_email,user_password) VALUES (DEFAULT,$1,$2,$3 )"
   const args = [req.body.name, req.body.mail,hash]
   const client = await pool.connect()
   const result = await client.query(request,args,(err,result) => {
@@ -27,3 +27,4 @@ router.post('/', async(req, res, next) => {
 });
 
 module.exports = router;
+,

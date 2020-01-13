@@ -12,8 +12,8 @@ const bcrypt = require('bcryptjs');
 router.post('/', async(req, res, next) => {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
-  bcrypt.genSalt(10, function(err,salt) {
-    bcrypt.hash(req.body.password, salt, function(err, hash){
+  await bcrypt.genSalt(10, function(err,salt) {
+    await bcrypt.hash(req.body.password, salt, function(err, hash){
 
     })
   })

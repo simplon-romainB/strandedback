@@ -8,11 +8,10 @@ var should = chai.should();
 describe('unitTest', () => {
 
     it('Main page status', function (done) {
-        chai.request('http://localhost:8080').get('/')
+        chai.request('https://peaceful-mountain-88307.herokuapp.com/articles').get('/')
         //chai.request('https://peaceful-mountain-88307.herokuapp.com/articles', function (error, response, body) {
         expect(request.method).to.Be(GET)  
         expect(response.statusCode).to.equal(200);
             done();
         });
     });
-});
